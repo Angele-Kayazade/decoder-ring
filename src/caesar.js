@@ -8,7 +8,7 @@ const caesarModule = (function () {
 
   function caesar(input, shift, encode = true) {
     // your solution code here
-    if (shift == 0 || shift > 25 || shift < -25) return false;
+    if (shift == 0 || shift > 25 || shift < -25 || shift == undefined) return false;
     let result = "";
     let alphabet = {
       1: "a", 2: "b", 3: "c", 4: "d", 5: "e", 6: "f", 7: "g",
@@ -46,7 +46,6 @@ const caesarModule = (function () {
       result = inputArray.join("");
       return result;
   }
-      caesar("ab", -2)
   return {
     caesar,
   };

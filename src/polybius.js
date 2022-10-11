@@ -9,11 +9,13 @@ const polybiusModule = (function () {
                     ['c','h','n','s','x'],
                     ['d','(i/j)','o','t','y'],
                     ['e','k','p','u','z']];
-  let inputArray = input.split('');
+   
+  
   let first = 0;
   let second = 0;
 
     if (encode == false) {
+      let inputArray = input.split('');
       let counter = 0;
       let counterWithSpace = 0;
       const loop = ()=>{
@@ -40,6 +42,8 @@ const polybiusModule = (function () {
       }
     }
     else {
+      input = input.toLowerCase(); 
+      let inputArray = input.split('');
       for (let i = 0; i < inputArray.length; i++) {
         if (inputArray[i] == 'i' || inputArray[i] == 'j') {
           resultArray.push(4,2);
@@ -62,8 +66,6 @@ const polybiusModule = (function () {
     if (second < 0) return false
     return result;
   }
-
-  polybius("a b c")
 
   return {
     polybius,
