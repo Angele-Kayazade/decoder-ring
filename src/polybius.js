@@ -15,9 +15,19 @@ const polybiusModule = (function () {
   let second = 0;
 
     if (encode == false) {
+
+      //split string into an array
       let inputArray = input.split('');
+
+      //counts only the numbers, so it is able to keep track
+      //of whether the number is 'first' or 'second'
       let counter = 0;
+
+      //keeps the count of all characters; that is needed to make sure
+      //that the loops that are dependent on the array length function properly
       let counterWithSpace = 0;
+
+      //checks if the character is a space, a 'first' or a 'second'
       const loop = ()=>{
           if (inputArray[counterWithSpace] == ' '){
             counterWithSpace++;
@@ -36,10 +46,15 @@ const polybiusModule = (function () {
             resultArray.push(polybius[first][second])
           }
         }
-
+      
+      //once inputArray[counterWithSpace] becomes undefined,
+      //that means there are no more characters in the inputArray
+      //if at that point the variable 'second' is at -1, that means that
+      //there was an odd number of numbers and the function should return false
       while (inputArray[counterWithSpace]) {
         loop(counter,counterWithSpace);
       }
+      if (second < 0) return false
     }
     else {
       input = input.toLowerCase(); 
@@ -63,7 +78,6 @@ const polybiusModule = (function () {
     }
 
     result = resultArray.join('');
-    if (second < 0) return false
     return result;
   }
 
