@@ -8,10 +8,9 @@ const substitutionModule = (function () {
 
   function substitution(input, alphabet, encode = true) {
     if (!alphabet || alphabet.length != 26) return false;
-    
-    let result = '';
+  
     let lowercaseInput = input.toLowerCase();
-    let inputArray = input.split('');
+    let inputArray = lowercaseInput.split('');
     let inputAlphabetArray = alphabet.split('');
     let resultArray = [];
     let alphabetRef = 'abcdefghijklmnopqrstuvwxyz';
